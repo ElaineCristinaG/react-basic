@@ -8,31 +8,54 @@
       const app = document.getElementById('app');
 
       function Header() {
-        return <div id="header" style={{ 
-          display: 'flex', justifyContent: 'spaceBetween',width: '98vw' , backgroundColor:'purple', color:'white', padding: '10px', borderRadius: '8px'}}>
-            {/* Inline Styling */}
-            <div id="boxIcon" style={{ padding: '8px', backgroundColor: 'purple' }}>
-              <label for="">React</label>
-            </div>
-            <h1 id='titleHeader'style={{ margin: '0'}}>Bem Vindo ao React!</h1>
-            
+        return <div id="header" style={{ display: 'flex', justifyContent: 'space-between',width: '98vw', backgroundColor:'purple', color:'white', padding: '10px', borderRadius: '8px'}}>
+                  <div id="boxIcon" style={{ padding: '8px', backgroundColor: 'purple' }}>
+                    <label for="">React</label>
+                  </div>
+                  <h1 id='titleHeader' style={{ margin: '0'}}>Bem Vindo ao React!</h1>
+                </div> ;
+      }
 
-          </div> ;
+      function Btn({ text }){
+        return   <button id="btn" style={{ backgroundColor:'purple',border: 'none', borderRadius: '8px', height: '40px'}}> {text} </button>       
+      }
+
+      function Input({ type , placeholder}){
+        return <input type={type} style={{ border: 'none', padding: '8px', borderRadius: '8px'}} 
+        placeholder={ placeholder }/>
       }
 
       function Form(){
-        return  <div id="form" style={{display:'flex', flexDirection: 'column', width: '250px', gap:'15px',border: '1px solid purple', padding: '15px', borderRadius: '8px',}}>
-                  <input type="text" placeholder="Nome" />
-                  <input type="text" placeholder="Senha" />
-                  <button style={{ backgroundColor:'purple',border: 'none', borderRadius: '8px', height: '40px'}}>START</button>
-                </div>
+        return  <div id="forms" style={{display:'flex', flexDirection: 'column', width: '250px', gap:'15px',border: '1px solid purple', padding: '15px', borderRadius: '8px'}}>
+                  <Input type='text' placeholder='Nome' />
+                  <Input type='password' placeholder='Senha' />
+                  <Btn text="Entrar"  />
+                </div>;
+      }
+
+      function Select({options}){
+        return  <select id="select" style={{ padding: '8px', borderRadius: '8px', border: 'none'}}>
+                  { 
+                    options.map((option, index) => (
+                    <option key={index} value={option}>
+                      {option}
+                    </option>))
+                  }
+                </select>
       }
 
       function HomePage(){
+        const options = ['React', 'Vue', 'Angular'];
+        const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
         return <div id="homePage" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap:'25px'}}>
-          {/* Nesting the Header component*/}
           <Header />
           <Form />
+          <Select options={options}/>
+          <ul>
+              {names.map((name) => (
+            <li>{name}</li>
+              ))}
+          </ul>
         </div>
       }
 
