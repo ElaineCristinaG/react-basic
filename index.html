@@ -1,6 +1,7 @@
 <html>
   <body>
     <div id="app"></div>
+     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -8,7 +9,7 @@
       const app = document.getElementById('app');
 
       function Header() {
-        return <div id="header" style={{ display: 'flex', justifyContent: 'space-between',width: '98vw', backgroundColor:'purple', color:'white', padding: '10px', borderRadius: '8px'}}>
+        return <div id="header" style={{ display: 'flex', justifyContent: 'space-between',width: '98vw', backgroundColor:'purple', color:'white', padding: '10px', borderRadius: '8px',position: 'fixed', top: 0}}>
                   <div id="boxIcon" style={{ padding: '8px', backgroundColor: 'purple' }}>
                     <label for="">React</label>
                   </div>
@@ -59,10 +60,15 @@
       function HomePage(){
         const options = ['React', 'Vue', 'Angular'];
       
-        return <div id="homePage" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap:'25px'}}>
+        return <div id="homePage" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',justifyContent: 'center', backgroundColor: 'black',width:'100vw', height: '100vh'
+
+        }}>
           <Header />
-          <Form save ={ Handleclick } />
-          <Select options={options}/>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '25px'}}>
+            <Form save ={ Handleclick } />
+            <Select options={options}/>
+          </div>
+          
         </div>
       }
 
